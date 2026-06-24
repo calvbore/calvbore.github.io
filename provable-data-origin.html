@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Provable Data Origin, The Platapus Method, A Brief.">
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<script>
+MathJax = {
+  svg: { fontCache: 'global' }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<div id="doc" class="container-fluid markdown-body comment-enabled" data-hard-breaks="true">
+<div id="top-bar">
+<a id="rss-link" href="/feed.xml" title="RSS feed">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9"/>
+    <path d="M4 4a16 16 0 0 1 16 16"/>
+    <circle cx="5" cy="19" r="1"/>
+  </svg>
+</a>
+<div id="color-mode-switch">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+  </svg>
+  <input type="checkbox" id="switch"/>
+  <label for="switch">Dark Mode Toggle</label>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+  </svg>
+</div>
+</div>
+<script>
+var r=document.querySelector('html'),t=document.querySelector('#color-mode-switch input[type="checkbox"]');
+function a(s){r.classList.remove('dark','light');r.classList.add(s);if(t)t.checked=s==='dark';localStorage.setItem('colorScheme',s);}
+var s=localStorage.getItem('colorScheme');
+if(s){a(s);}else{a(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
+if(t)t.onclick=function(){a(r.classList.contains('dark')?'light':'dark');};
+</script>
+<script>
+function copyPlantuml(b){var s=b.closest(".plantuml-container").getAttribute("data-plantuml-src");navigator.clipboard.writeText(s).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
+function copyPlantumlImage(b){var i=b.closest(".plantuml-container").querySelector("img");fetch(i.src).then(function(r){return r.blob()}).then(function(b){navigator.clipboard.write([new ClipboardItem({[b.type]:b})])}).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
+</script>
+<script>
+function copyCodeBlock(b){var c=b.closest(".code-block-wrapper").querySelector("code");navigator.clipboard.writeText(c.textContent).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
+</script>
+<script>
+function copyLatex(b){var s=b.closest(".math-wrapper").getAttribute("data-latex-src");navigator.clipboard.writeText(s).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
+</script>
+<br>
+<h1 style="margin-bottom:7px"> Provable Data Origin, The Platapus Method, A Brief. </h1>
+<small style="float:left; color: #888"> <a href="/2023/" style="color:inherit;text-decoration:none">2023</a> <a href="/2023/07/" style="color:inherit;text-decoration:none">Jul</a> <a href="/2023/07/13/" style="color:inherit;text-decoration:none">13</a> </small>
+<small style="float:right; color: #888"><a href="/index.html">See all posts</a></small>
+<br><br><br>
+<title> Provable Data Origin, The Platapus Method, A Brief. </title>
+<div style="font-size:0.85em; font-family:monospace; color:var(--text-secondary);margin-bottom:0"> 1003 words</div>
+<div style="font-size:0.85em; color:var(--text-secondary); margin:6px 0"><hr style="border:none;border-top:1px solid var(--border);margin:4px 0"><a href="/hardware.html" style="color:var(--text-secondary)">Hardware</a> · <a href="/protocols.html" style="color:var(--text-secondary)">Protocols</a><hr style="border:none;border-top:1px solid var(--border);margin:4px 0"></div>
+<p><em>(Special thanks to <a
+href="https://twitter.com/daniel_d_kang">Daniel Kang</a> for feedback on
+this article.)</em></p>
+<p><strong>P</strong>rotocol for <strong>L</strong>ocation
+<strong>A</strong>nd <strong>T</strong>ime <strong>A</strong>ttested
+<strong>P</strong>henomena of <strong>U</strong>ser
+<strong>S</strong>ensor data. PLATAPUS. Because silly names are fun.</p>
+<p>The platapus method will allow real world data creators to prove that
+data was captured within a defined time and location window. The method
+is constructed upon two key pillars. First, that a trusted attested
+sensor can be used to guarantee that data was produced after another
+piece of data. Second, that publishing a piece of data to a public
+network guarantees that the data was produced prior to the
+publication.</p>
+<p>If these two properties are upheld then we can provably create data
+within a time and location window.</p>
+<h2 id="programmable-attested-sensor">Programmable Attested Sensor</h2>
+<p>The method relies primarily on a piece of trusted hardware, an
+attested sensor. The proposed hardware is a sensor that can be preloaded
+with arbitrary data. The sensor produces the data captured from the
+world with a digital signature containing both the
+<code>captured data</code> and the <code>preloaded data</code>. Because
+the sensor is a trusted piece of hardware the signature assures that the
+captured data was produced after the preloaded data.</p>
+<p>Let's define some terms for the rest of the article:</p>
+<ul>
+<li><p><code>preloaded data</code>: arbitrary data that can be loaded
+into the sensor.</p></li>
+<li><p><code>captured data</code>: the data captured by the
+sensor.</p></li>
+<li><p><code>sensor signature</code>: a signature produced by the
+sensor, and included in the <code>captured data</code>'s metadata,
+assuring that the <code>captured data</code> was produced after the
+<code>preloaded data</code>.</p></li>
+</ul>
+<div class="plantuml-container"
+data-plantuml-src="component &quot;trusted hardware&quot; {
+portin sensor
+portin &quot;data input&quot; as di
+portin &quot;instruction input&quot; as ii
+
+[execution environment] as ee
+
+portout output as out
+}
+
+[user device] as ud
+
+[world] --&gt; sensor: captured data
+ud --&gt; di: preloaded data
+ud --&gt;ii
+
+sensor --&gt; ee
+di --&gt; ee
+ii --&gt; ee
+ee --&gt; out
+
+out --&gt; () &quot;captured data&quot;
+out --&gt; () &quot;metadata: incl. sensor signature&quot;">
+<img src="https://www.plantuml.com/plantuml/svg/LOz1RWCn24NtFWNogbaa1vX5Br9bOHdK8irW2-CaKfIx5xj9r5bO-l3vy9pBLekG64JJtemGVfBYDIb5k8TQr5YWaRIYhofYiWGijLk4r03vxR0qNvEDY_mRO0xXYswK-pH8Bgn5Dhzw7ZPHc0jAD_3dgT5r5HwUwuqKa2wSQKvtzEQrw8fdE1u_dsmBv5Ijg_CFkj1nciWBLAMr9Dmx0-alEUSS0Vcb-As8fXeeOT2DukC0SNShxgoDB8tkul_Fw-c91us_9OrC_0K" />
+<div class="plantuml-buttons">
+<button class="plantuml-copy-btn" onclick="copyPlantuml(this)" title="Copy PlantUML source">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+</svg>
+</button>
+<button class="plantuml-copy-btn" onclick="copyPlantumlImage(this)" title="Copy image">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+</svg>
+</button>
+</div>
+</div>
+<p>Why must trusted hardware be used for this method?</p>
+<p>A verifiable time window of the captured data would be impossible
+without trusted hardware. A software based solution seems trivial to
+exploit. Even with verifiable computation via a <a
+href="https://vitalik.ca/general/2021/01/26/snarks.html">zero
+knowledge</a> <a href="https://www.risczero.com/">proof</a>, or private
+computation with <a href="https://6min.zama.ai/">fully homomorphic
+encryption</a>, the software could still be fed arbitrary
+<code>preloaded data</code> that may have been captured, or
+synthetically produced, at any time before or after what is supposed to
+be trusted <code>captured data</code>. There would be no guarantee that
+the data was captured by a sensor, or that the data was authentic, and
+produced after the <code>preloaded data</code>, breaking the method's
+time window guarantee. We must ensure that the
+<code>captured data</code> is produced after the
+<code>preloaded data</code> has been generated to preserve the
+properties of the method. A secure trusted hardware sensor seems the
+only way to ensure the method's goals.</p>
+<h2 id="time-location-and-publishing-networks">Time, Location, and
+Publishing Networks</h2>
+<p>The method will also require the use of a decentralized network to
+provide provable time and location claims. A network like <a
+href="https://ethereum.org/">ethereum</a> could provide time claims for
+the opening of the method's time window and also feasibly be used as a
+data availability provider for publishing the captured data or sensor
+signature, as a means of closing the method's time window.</p>
+<p>The lack of location capabilities in ethereum would then point
+towards a network like <a href="https://foam.space/">FOAM</a>. FOAM is a
+network of distributed nodes providing location services via <a
+href="https://medium.com/@dconrad/how-new-long-range-radios-will-change-the-internet-of-things-ed8e6b5e367f">LPWAN</a>(Low
+Power Wide Area Networks). When a user requests a presence claim from
+FOAM they broadcast a small message (about 100 bytes) to the network
+containing primarily of a <a
+href="https://blog.foam.space/the-anatomy-of-a-zone-e8abc4ceca85">cryptographic
+signature</a>.</p>
+<div class="plantuml-container"
+data-plantuml-src="participant sensor #orange
+participant user #lightgreen
+collections network #orange
+user -&gt; network: broadcast request
+network -&gt; user: return presence claim
+user -&gt; sensor: program presence claim watermark
+sensor &lt;- sensor: capture data
+sensor -&gt; user: retreive watermarked data
+user -&gt; network: publish data to network
+network --&gt; user: retreive data
+user &lt;- user: generate proof of inclusion">
+<img src="https://www.plantuml.com/plantuml/svg/PP1HZi8m34J_UmfBV7E1QiLTJ3eR8b8dwpXmVGobBLgaVEMDnpEkh9P2gYn63TAAqg4eIyHGFr1lS91Jl5XKG8PGSaQmLAIHmEv5hzlWItmyhVyZdRNm5BWPAVuwcWthYAkUwj61THMg2ayHG25pcZUd9Tdek4Jb-P-CxcpGcVKwl2ly7BUHmDMTGHCRh_XpgoBTi3jWMfHV7Me_vzGkBqfMLh0t-JRTZJpFmY84whkUJSel-KiIScz-nmS" />
+<div class="plantuml-buttons">
+<button class="plantuml-copy-btn" onclick="copyPlantuml(this)" title="Copy PlantUML source">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+</svg>
+</button>
+<button class="plantuml-copy-btn" onclick="copyPlantumlImage(this)" title="Copy image">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+</svg>
+</button>
+</div>
+</div>
+<p>Using FOAM we could request a presence claim and use it as the
+<code>preloaded data</code> for our attested sensor. Then, request a
+second presence claim with the hash of the captured data (alternative
+parameters or signing methods could be used, options may be explored in
+a future article), this effectively publishes a hash of the
+<code>captured data</code> to the FOAM network. The two presence claims
+give us the openings and closings of the time and location window for
+the sensor data and are added to the metadata with a zk-proof assuring
+both claims have followed the protocol.</p>
+<p>There is not much to be done about withholding the data to be
+published/released at a later time. However, if the two presence claims
+are close to one another in both location and time (additionally, we
+could tie the signature of the second presence claim to the attested
+sensor that generated the <code>captured data</code>) we can be fairly
+sure of where and when the sensor data was captured, but as the time
+between presence claims increases the confidence in the location claim
+becomes weaker. Each application using the method will have to define
+some confidence interval between presence claims for its use case and if
+the data doesn't meet that definition it may dismiss it. As long as the
+attested sensor has not been compromised we can be sure that the data
+was produced between the two presence claims.</p>
+<p>If location claims are not desired we could go ahead and use the
+latest ethereum blockhash as the <code>preloaded data</code>, and then
+publish the <code>sensor signature</code> into ethereum's blobspace.</p>
+<p>Using a decentralized network is nice because we can use its
+trustless structure to prove things about data while using or
+authenticating it on-chain, without relying on an additional trusted
+party.</p>
+<p>In practice a decentralized network could be substituted with a
+trusted authority that would provide signed attestations for either, or
+both, the opening and closing of the method's window. Publishing could
+also take place on a centralized service such as a social media provider
+or image host. However, introducing an additional centralized source
+(after the manufacturer of the trusted sensor) reduces the security and
+efficacy of the method. Composability is a property that cannot be
+understated, and so prioritising decentralized networks should be the
+preference of the method.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The platapus method relies on two main properties. Firstly, trusted
+hardware can guarantee that digital data was produced after another
+piece of data. And secondly, publicly publishing data ensures that data
+was created prior to publication. An implementation of this method seems
+far away at this point in time (May 2023), but after the development of
+a programmable attested sensor, and the deployment of a widespread proof
+of location network like FOAM, this method could be used as a proof
+within standards like <a href="https://c2pa.org/">C2PA</a> to
+authenticate the origin of data, and within decentralized apps as
+verifiable real world data.</p>
+<hr style="border:none;border-top:1px solid var(--border);margin:16px 0 8px 0">
+<div style="font-size:0.85em; color:var(--text-secondary)">
+  <span style="float:left"><a href="/2023/" style="color:inherit;text-decoration:none">2023</a> <a href="/2023/07/" style="color:inherit;text-decoration:none">Jul</a> <a href="/2023/07/13/" style="color:inherit;text-decoration:none">13</a></span>
+  <span style="float:right"><a href="/hardware.html" style="color:var(--text-secondary)">Hardware</a> · <a href="/protocols.html" style="color:var(--text-secondary)">Protocols</a></span>
+  <div style="clear:both"></div>
+</div>
+</div>

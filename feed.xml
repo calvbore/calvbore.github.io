@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<rss version="2.0">
+<channel>
+  <title>cqb</title>
+  <link>https://cqb.github.io/</link>
+  <description>cqb</description>
+  <image>
+      <url>/images/icon.png</url>
+      <title>cqb</title>
+      <link>https://cqb.github.io/</link>
+  </image>
+<item>
+<title>Hello World</title>
+<link>https://cqb.github.io/hello-world.html</link>
+<guid>https://cqb.github.io/hello-world.html</guid>
+<pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
+<description></description>
+</item>
+
+<item>
+<title>Provable Data Origin, The Platapus Method, A Brief.</title>
+<link>https://cqb.github.io/provable-data-origin.html</link>
+<guid>https://cqb.github.io/provable-data-origin.html</guid>
+<pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+<description></description>
+</item>
+
+</channel>
+</rss>

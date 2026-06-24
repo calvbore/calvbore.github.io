@@ -1,0 +1,381 @@
+:root {
+  --bg: #f4f0e6;
+  --text: #333333;
+  --text-secondary: #888888;
+  --link: #1a0dab;
+  --link-visited: #4b0082;
+  --border: #e4dfd4;
+  --card-bg: #ede8dd;
+  --code-bg: #e9e4d8;
+  --blockquote-border: #ddd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c1c;
+    --text: #dddddd;
+    --text-secondary: #888888;
+    --link: #8ab4f8;
+    --link-visited: #b18ad8;
+    --border: #333333;
+    --card-bg: #252525;
+    --code-bg: #2a2a2a;
+    --blockquote-border: #444;
+  }
+}
+
+html.light {
+  --bg: #f4f0e6;
+  --text: #333333;
+  --text-secondary: #888888;
+  --link: #1a0dab;
+  --link-visited: #4b0082;
+  --border: #e4dfd4;
+  --card-bg: #ede8dd;
+  --code-bg: #e9e4d8;
+  --blockquote-border: #ddd;
+}
+
+html.dark {
+  --bg: #1c1c1c;
+  --text: #dddddd;
+  --text-secondary: #888888;
+  --link: #8ab4f8;
+  --link-visited: #b18ad8;
+  --border: #333333;
+  --card-bg: #252525;
+  --code-bg: #2a2a2a;
+  --blockquote-border: #444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  font-size: 18px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+h1, h2, h3 {
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 1.6em;
+  margin-bottom: 7px;
+}
+
+/* Top bar */
+#top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#rss-link {
+  width: 16px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+}
+#rss-link svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
+}
+#color-mode-switch {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+#color-mode-switch svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text-secondary);
+}
+
+#color-mode-switch input[type="checkbox"] {
+  display: none;
+}
+
+#color-mode-switch label {
+  cursor: pointer;
+  font-size: 0;
+  width: 40px;
+  height: 20px;
+  background: var(--border);
+  border-radius: 10px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+#color-mode-switch label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: var(--text);
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+#color-mode-switch input:checked + label::after {
+  transform: translateX(20px);
+}
+
+/* Post list */
+ul.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.post-list li {
+  margin-bottom: 8px;
+  padding: 4px 0;
+}
+
+.post-meta {
+  color: var(--text-secondary);
+  font-size: 0.85em;
+  display: block;
+}
+
+.post-list h3 {
+  margin: 4px 0 12px 0;
+  font-size: 1.05em;
+  font-weight: 500;
+}
+
+.post-list a {
+  color: var(--text);
+}
+
+.post-list a:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+/* Category header */
+.categories-header {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.categories-header hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 15px 0;
+}
+
+.toc-category {
+  display: inline-block;
+  margin: 0 6px;
+}
+
+.toc-category a {
+  color: var(--text-secondary);
+  font-size: 0.9em;
+}
+
+.toc-category a:hover {
+  color: var(--link);
+}
+
+/* Post content (pandoc output) */
+.markdown-body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 1.8;
+}
+
+.markdown-body p {
+  margin: 1em 0;
+  text-align: justify;
+}
+
+.markdown-body code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+.markdown-body pre {
+  background: var(--code-bg);
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.markdown-body pre code {
+  padding: 0;
+  background: none;
+}
+
+.markdown-body blockquote {
+  margin: 1em 0;
+  padding-left: 15px;
+  border-left: 3px solid var(--blockquote-border);
+  color: var(--text-secondary);
+}
+
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background: var(--card-bg);
+}
+
+/* Small text utility */
+small {
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* PlantUML copy button */
+.plantuml-container {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+.plantuml-buttons {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: none;
+  gap: 4px;
+}
+.plantuml-container:hover .plantuml-buttons {
+  display: flex;
+}
+.plantuml-copy-btn {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  cursor: pointer;
+}
+.plantuml-copy-btn:hover {
+  background: rgba(0,0,0,0.7);
+}
+.plantuml-copy-btn svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Code block copy button */
+.code-block-wrapper {
+  position: relative;
+}
+.code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+.code-block-wrapper:hover .code-copy-btn {
+  display: block;
+}
+.code-copy-btn:hover {
+  background: rgba(0,0,0,0.7);
+}
+.code-copy-btn svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Math LaTeX copy button */
+.math-wrapper.math-display-wrapper {
+  display: block;
+  position: relative;
+}
+.math-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+.math-wrapper:hover .math-copy-btn {
+  display: block;
+}
+.math-copy-btn:hover {
+  background: rgba(0,0,0,0.7);
+}
+.math-copy-btn svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
