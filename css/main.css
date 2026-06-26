@@ -315,6 +315,7 @@ small {
     width: 270px;
     border-left: 1px solid var(--border);
     padding-left: 12px;
+    text-align: left;
   }
   .sidenote-content p {
     margin: 0 0 0.4em;
