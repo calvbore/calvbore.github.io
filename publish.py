@@ -114,6 +114,7 @@ def get_linked_date(date_text):
 PRE_HEADER = '''<!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 '''
 
 HEADER_TEMPLATE = '''<link rel="stylesheet" type="text/css" href="/css/main.css">

@@ -32,7 +32,8 @@ categories: [category1, category2]
 | `posts/` | Source | Markdown posts (your input) |
 | `publish.py` | Source | Build script — reads frontmatter, runs pandoc, outputs HTML |
 | `config.yml` | Source | Site title, domain, icon |
-| `css/main.css` | Source | Blog styling, dark mode |
+| `css/main.css` | Source | Blog styling, dark mode, sidenote styles |
+| `publish.py` (FOOTNOTE_JS) | Source | Inline JS for sidenote positioning & narrow-screen tooltip |
 | `.github/workflows/publish.yml` | Source | CI: installs pandoc, runs publish.py, commits generated files |
 | `index.html` | Generated | Post listing / homepage |
 | `feed.xml` | Generated | RSS feed |
@@ -53,6 +54,7 @@ python3 publish.py
 - **Generated files are committed to the repo** — this is intentional so GitHub Pages can serve them directly without an extra build step.
 - Dark/light mode toggle is pure CSS/JS (no framework).
 - Categories are derived from the `categories` field in each post's frontmatter.
+- **Sidenote margin-footnotes**: `reorganize_footnotes()` in `publish.py` runs post-pandoc: extracts footnote content from the end-section via regex, wraps each footnote ref with `.sidenote-wrapper`/`.sidenote-content`, and replaces the end-section with a compact version. `FOOTNOTE_JS` positions sidenotes on load/resize and handles narrow-screen click-to-expand tooltips. On wide screens (≥1024px), sidenote width adapts via JS (`avail = innerWidth - content.rightEdge - 30px - 20px`, clamped 150–270px).
 
 ## Constraints
 
