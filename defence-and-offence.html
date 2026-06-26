@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="defence and offence in space combat">
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<script>
+MathJax = {
+  svg: { fontCache: 'global' }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<div id="doc" class="container-fluid markdown-body comment-enabled" data-hard-breaks="true">
+<div id="top-bar">
+<a id="rss-link" href="/feed.xml" title="RSS feed">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9"/>
+    <path d="M4 4a16 16 0 0 1 16 16"/>
+    <circle cx="5" cy="19" r="1"/>
+  </svg>
+</a>
+<div id="color-mode-switch">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+  </svg>
+  <input type="checkbox" id="switch"/>
+  <label for="switch">Dark Mode Toggle</label>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+  </svg>
+</div>
+</div>
+<script>
+var r=document.querySelector('html'),t=document.querySelector('#color-mode-switch input[type="checkbox"]');
+function a(s){r.classList.remove('dark','light');r.classList.add(s);if(t)t.checked=s==='dark';localStorage.setItem('colorScheme',s);}
+var s=localStorage.getItem('colorScheme');
+if(s){a(s);}else{a(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
+if(t)t.onclick=function(){a(r.classList.contains('dark')?'light':'dark');};
+</script>
+<script>
+function copyPlantuml(b){var s=b.closest(".plantuml-container").getAttribute("data-plantuml-src");navigator.clipboard.writeText(s).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
+function copyPlantumlImage(b){var i=b.closest(".plantuml-container").querySelector("img");fetch(i.src).then(function(r){return r.blob()}).then(function(b){navigator.clipboard.write([new ClipboardItem({[b.type]:b})])}).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
+</script>
+<script>
+function copyCodeBlock(b){var c=b.closest(".code-block-wrapper").querySelector("code");navigator.clipboard.writeText(c.textContent).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
+</script>
+<script>
+function copyLatex(b){var s=b.closest(".math-wrapper").getAttribute("data-latex-src");navigator.clipboard.writeText(s).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
+</script>
+<br>
+<h1 style="margin-bottom:7px"> defence and offence in space combat </h1>
+<small style="float:left; color: #888"> <a href="/2026/" style="color:inherit;text-decoration:none">2026</a> <a href="/2026/06/" style="color:inherit;text-decoration:none">Jun</a> <a href="/2026/06/24/" style="color:inherit;text-decoration:none">24</a> </small>
+<small style="float:right; color: #888"><a href="/index.html">See all posts</a></small>
+<br><br><br>
+<title> defence and offence in space combat </title>
+<div style="font-size:0.85em; font-family:monospace; color:var(--text-secondary);margin-bottom:0">  482 words</div>
+<div style="font-size:0.85em; color:var(--text-secondary); margin:6px 0"><hr style="border:none;border-top:1px solid var(--border);margin:4px 0"><a href="/space.html" style="color:var(--text-secondary)">Space</a> · <a href="/strategy.html" style="color:var(--text-secondary)">Strategy</a> · <a href="/conflict.html" style="color:var(--text-secondary)">Conflict</a><hr style="border:none;border-top:1px solid var(--border);margin:4px 0"></div>
+<p>I recently listened to the <a
+href="https://80000hours.org/podcast/episodes/war-in-space/">80k podcast
+summary</a> of <a
+href="https://www.beren.io/2025-11-22-Space-Warfare-Seems-Mostly-Defense-Dominant/">Space
+Warfare Seems Mostly Defense Dominant</a>. After reading and sharing it
+someone linked me the seemingly conflicting <a
+href="https://gwern.net/colder-war">Colder Wars</a> that argues space
+combat favours the attacker. My thoughts on the matter have also leaned
+towards thinking of warfare in space as offence favouring. It now seems
+to me that it is more of a spectrum primarily based on the distance of
+the adversaries to one another.</p>
+<p>If adversaries are roughly equally resourced then a first strike
+carries more advantage with less distance between them, while with more
+distance the defender has more time to react to subluminal attacks, and
+more opportunity to randomize their positioning against luminal attacks,
+decreasing the attacker's ability to target the defender's position
+effectively.</p>
+<p>How would this model play out with more asymmetrically resourced
+adversaries?</p>
+<p>Clearly, with large distances, a less resourced attacker doesn't
+stand a chance of damaging the more resourced defender.</p>
+<p>The main strategy I see for a more resourced distant attacker would
+be to overwhelm the defender's capacity to respond to attacks by
+targeting a much larger volume of effect with their luminal weapons, or
+sending large enough swarms of subluminal weapons so that the defender
+is unable to respond to all of them. A defender with distant adversaries
+needs to keep the cost of a successful attack high enough that their
+potential attackers are not willing to sink their resources into the
+attack.</p>
+<p>The key question for defenders is then figuring out how much energy
+is required to defend against their potential adversary at the minimal
+expected distance. If they meet this defence budget then they should be
+safe from similarly sized adversaries at greater distances, and somewhat
+larger adversaries at these distances and longer too.</p>
+<p>If an attacker is very patient, they could send Von-Neumann probes to
+galaxies that are on a collision course with their adversary and wait
+for the distance to close and then begin their first strike. If the
+defender can detect the launch and trajectory of the probes then this
+could precipitate conflict in these collision bound galaxies. This would
+seem to imply that a defender should preemptively claim the galaxies
+that are on a collision course with them.</p>
+<p>How would strategies change with different and more complex
+adversarial layouts? For example, two adversaries that occupy the same
+galaxy, but the territory they control is highly intertwined and
+nebulous<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>, so most controlled spatial volumes
+are both very close and very far from the spatial volumes controlled by
+their adversary. Or, the opposite case, where the adversaries have split
+a galaxy in half and have one very clearly defined border between their
+controlled spatial volumes. What are other interesting arrangements of
+adversaries, and what effects do the arrangements have on strategic
+stability?</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This state could be caused by a galactic collison with a
+galaxy that has been successfully, and perhaps stealthily, seeded.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<hr style="border:none;border-top:1px solid var(--border);margin:16px 0 8px 0">
+<div style="font-size:0.85em; color:var(--text-secondary)">
+  <span style="float:left"><a href="/2026/" style="color:inherit;text-decoration:none">2026</a> <a href="/2026/06/" style="color:inherit;text-decoration:none">Jun</a> <a href="/2026/06/24/" style="color:inherit;text-decoration:none">24</a></span>
+  <span style="float:right"><a href="/space.html" style="color:var(--text-secondary)">Space</a> · <a href="/strategy.html" style="color:var(--text-secondary)">Strategy</a> · <a href="/conflict.html" style="color:var(--text-secondary)">Conflict</a></span>
+  <div style="clear:both"></div>
+</div>
+</div>
