@@ -192,6 +192,8 @@ TITLE_TEMPLATE = '''<br>
 <title> {title} </title>
 '''
 
+HOME_LINK = '<small style="float:left;color:var(--text-secondary)"><a href="/index.html" style="color:inherit;text-decoration:none">← Home</a></small>'
+
 TOC_TITLE_TEMPLATE = '''<title> {title} </title>
 <br>
 <center><h1 style="border-bottom:0px; font-family:Georgia,'Times New Roman',Times,serif"> {title} </h1></center>
@@ -261,13 +263,18 @@ def make_toc_item(config, metadata):
     )
 
 
-def make_toc(toc_items, all_categories, category_slug_map, title):
+def make_toc(toc_items, all_categories, category_slug_map, title, show_home=False):
+    if show_home:
+        home = HOME_LINK + '<br>'
+    else:
+        home = '<span style="visibility:hidden">← Home</span><br>'
     return (
         PRE_HEADER
         + RSS_LINK.format(title=title)
         + HEADER_TEMPLATE
         + TOGGLE_COLOR_SCHEME_JS
         + PLANTUML_JS
+        + home
         + TOC_TITLE_TEMPLATE.format(title=title)
         + make_categories_header(all_categories, category_slug_map)
         + TOC_START
@@ -628,7 +635,7 @@ def main():
             if cat in [c.lower() for c in m.get('categories', [])]
         ]
         with open(cat_file, 'w') as f:
-            f.write(make_toc(cat_items, categories, category_slug_map, cat.capitalize()))
+            f.write(make_toc(cat_items, categories, category_slug_map, cat.capitalize(), show_home=True))
     print(f"Generated {len(categories)} category pages")
 
     # Date archive pages
@@ -663,7 +670,7 @@ def main():
             title = f'{parts[0]}'
         items = [make_toc_item(config, m) for m in posts]
         with open(os.path.join(dir_path, 'index.html'), 'w') as f:
-            f.write(make_toc(items, categories, category_slug_map, title))
+            f.write(make_toc(items, categories, category_slug_map, title, show_home=True))
     print(f"Generated {len(date_groups)} date archive pages")
 
     print(f"\nDone. {len(sorted_metadatas)} posts, {len(categories)} categories.")

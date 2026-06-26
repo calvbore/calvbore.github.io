@@ -43,7 +43,7 @@ if(t)t.onclick=function(){a(r.classList.contains('dark')?'light':'dark');};
 function copyPlantuml(b){var s=b.closest(".plantuml-container").getAttribute("data-plantuml-src");navigator.clipboard.writeText(s).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
 function copyPlantumlImage(b){var i=b.closest(".plantuml-container").querySelector("img");fetch(i.src).then(function(r){return r.blob()}).then(function(b){navigator.clipboard.write([new ClipboardItem({[b.type]:b})])}).then(function(){var i=b.innerHTML;b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){b.innerHTML=i},2000)})}
 </script>
-<title> Space </title>
+<small style="float:left;color:var(--text-secondary)"><a href="/index.html" style="color:inherit;text-decoration:none">← Home</a></small><br><title> Space </title>
 <br>
 <center><h1 style="border-bottom:0px; font-family:Georgia,'Times New Roman',Times,serif"> Space </h1></center>
 <center><hr>
