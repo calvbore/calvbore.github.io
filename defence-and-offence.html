@@ -50,7 +50,7 @@ function copyLatex(b){var s=b.closest(".math-wrapper").getAttribute("data-latex-
 </script>
 <br>
 <h1 style="margin-bottom:7px"> defence and offence in space combat </h1>
-<small style="float:left; color: #888"> <a href="/2026/" style="color:inherit;text-decoration:none">2026</a> <a href="/2026/06/" style="color:inherit;text-decoration:none">Jun</a> <a href="/2026/06/24/" style="color:inherit;text-decoration:none">24</a> </small>
+<small style="float:left; color: #888"> <a href="/2026/" style="color:inherit;text-decoration:none">2026</a> <a href="/2026/06/" style="color:inherit;text-decoration:none">Jun</a> <a href="/2026/06/25/" style="color:inherit;text-decoration:none">25</a> </small>
 <small style="float:right; color: #888"><a href="/index.html">See all posts</a></small>
 <br><br><br>
 <title> defence and offence in space combat </title>
@@ -100,26 +100,31 @@ that are on a collision course with them.</p>
 <p>How would strategies change with different and more complex
 adversarial layouts? For example, two adversaries that occupy the same
 galaxy, but the territory they control is highly intertwined and
-nebulous<a href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>, so most controlled spatial volumes
+nebulous<span class="sidenote-wrapper"><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a><span class="sidenote-content" data-fn="1">This state could be caused by a galactic collison with a
+galaxy that has been successfully, and perhaps stealthfully, seeded.</span></span>, so most controlled spatial volumes
 are both very close and very far from the spatial volumes controlled by
 their adversary. Or, the opposite case, where the adversaries have split
 a galaxy in half and have one very clearly defined border between their
 controlled spatial volumes. What are other interesting arrangements of
 adversaries, and what effects do the arrangements have on strategic
 stability?</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
+<section id="footnotes" class="footnotes">
+<hr>
 <ol>
 <li id="fn1"><p>This state could be caused by a galactic collison with a
-galaxy that has been successfully, and perhaps stealthily, seeded.<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+galaxy that has been successfully, and perhaps stealthfully, seeded. <a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
+<script>
+(function(){var m=document.querySelector('.markdown-body');if(!m)return;
+function p(){var n=m.querySelectorAll('.sidenote-content');for(var i=0;i<n.length;i++){var e=n[i],w=e.closest('.sidenote-wrapper');if(window.innerWidth>=1024){e.style.position='absolute';e.style.top=w.querySelector('.footnote-ref').offsetTop+'px';e.style.left='';var r=m.getBoundingClientRect(),avail=window.innerWidth-(r.left+r.width+30)-20;e.style.width=Math.min(270,Math.max(150,avail))+'px'}else{e.style.position='';e.style.top='';e.style.left='';e.style.width=''}}}
+p();window.addEventListener('resize',p);
+m.addEventListener('click',function(e){var r=e.target.closest('.sidenote-wrapper .footnote-ref');var a=m.querySelectorAll('.sidenote-wrapper.active');if(!r){for(var i=0;i<a.length;i++)a[i].classList.remove('active');return}
+e.preventDefault();if(window.innerWidth<1024){var w=r.closest('.sidenote-wrapper');var d=w.classList.contains('active');for(var i=0;i<a.length;i++)a[i].classList.remove('active');if(!d){w.classList.add('active');var n=w.querySelector('.sidenote-content'),t=r.getBoundingClientRect();n.style.left=Math.min(t.left,window.innerWidth-310)+'px';n.style.top=(t.bottom+4)+'px'}}})})();
+</script>
 <hr style="border:none;border-top:1px solid var(--border);margin:16px 0 8px 0">
 <div style="font-size:0.85em; color:var(--text-secondary)">
-  <span style="float:left"><a href="/2026/" style="color:inherit;text-decoration:none">2026</a> <a href="/2026/06/" style="color:inherit;text-decoration:none">Jun</a> <a href="/2026/06/24/" style="color:inherit;text-decoration:none">24</a></span>
+  <span style="float:left"><a href="/2026/" style="color:inherit;text-decoration:none">2026</a> <a href="/2026/06/" style="color:inherit;text-decoration:none">Jun</a> <a href="/2026/06/25/" style="color:inherit;text-decoration:none">25</a></span>
   <span style="float:right"><a href="/space.html" style="color:var(--text-secondary)">Space</a> · <a href="/strategy.html" style="color:var(--text-secondary)">Strategy</a> · <a href="/conflict.html" style="color:var(--text-secondary)">Conflict</a></span>
   <div style="clear:both"></div>
 </div>

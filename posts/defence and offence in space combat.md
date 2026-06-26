@@ -1,7 +1,7 @@
 ---
 title: defence and offence in space combat
 categories: space, strategy, conflict
-date: 2026-06-24
+date: 2026-06-25
 ---
 I recently listened to the [80k podcast summary](https://80000hours.org/podcast/episodes/war-in-space/) of [Space Warfare Seems Mostly Defense Dominant](https://www.beren.io/2025-11-22-Space-Warfare-Seems-Mostly-Defense-Dominant/). After reading and sharing it someone linked me the seemingly conflicting [Colder Wars](https://gwern.net/colder-war) that argues space combat favours the attacker. My thoughts on the matter have also leaned towards thinking of warfare in space as offence favouring. It now seems to me that it is more of a spectrum primarily based on the distance of the adversaries to one another.
 
@@ -17,7 +17,7 @@ The key question for defenders is then figuring out how much energy is required 
 
 If an attacker is very patient, they could send Von-Neumann probes to galaxies that are on a collision course with their adversary and wait for the distance to close and then begin their first strike. If the defender can detect the launch and trajectory of the probes then this could precipitate conflict in these collision bound galaxies. This would seem to imply that a defender should preemptively claim the galaxies that are on a collision course with them. 
 
-How would strategies change with different and more complex adversarial layouts? For example, two adversaries that occupy the same galaxy, but the territory they control is highly intertwined and nebulous^[This state could be caused by a galactic collison with a galaxy that has been successfully, and perhaps stealthily, seeded.], so most controlled spatial volumes are both very close and very far from the spatial volumes controlled by their adversary. Or, the opposite case, where the adversaries have split a galaxy in half and have one very clearly defined border between their controlled spatial volumes. What are other interesting arrangements of adversaries, and what effects do the arrangements have on strategic stability?
+How would strategies change with different and more complex adversarial layouts? For example, two adversaries that occupy the same galaxy, but the territory they control is highly intertwined and nebulous^[This state could be caused by a galactic collison with a galaxy that has been successfully, and perhaps stealthfully, seeded.], so most controlled spatial volumes are both very close and very far from the spatial volumes controlled by their adversary. Or, the opposite case, where the adversaries have split a galaxy in half and have one very clearly defined border between their controlled spatial volumes. What are other interesting arrangements of adversaries, and what effects do the arrangements have on strategic stability?
 
 
 

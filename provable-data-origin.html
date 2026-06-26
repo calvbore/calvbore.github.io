@@ -238,6 +238,13 @@ of location network like FOAM, this method could be used as a proof
 within standards like <a href="https://c2pa.org/">C2PA</a> to
 authenticate the origin of data, and within decentralized apps as
 verifiable real world data.</p>
+<script>
+(function(){var m=document.querySelector('.markdown-body');if(!m)return;
+function p(){var n=m.querySelectorAll('.sidenote-content');for(var i=0;i<n.length;i++){var e=n[i],w=e.closest('.sidenote-wrapper');if(window.innerWidth>=1024){e.style.position='absolute';e.style.top=w.querySelector('.footnote-ref').offsetTop+'px';e.style.left='';var r=m.getBoundingClientRect(),avail=window.innerWidth-(r.left+r.width+30)-20;e.style.width=Math.min(270,Math.max(150,avail))+'px'}else{e.style.position='';e.style.top='';e.style.left='';e.style.width=''}}}
+p();window.addEventListener('resize',p);
+m.addEventListener('click',function(e){var r=e.target.closest('.sidenote-wrapper .footnote-ref');var a=m.querySelectorAll('.sidenote-wrapper.active');if(!r){for(var i=0;i<a.length;i++)a[i].classList.remove('active');return}
+e.preventDefault();if(window.innerWidth<1024){var w=r.closest('.sidenote-wrapper');var d=w.classList.contains('active');for(var i=0;i<a.length;i++)a[i].classList.remove('active');if(!d){w.classList.add('active');var n=w.querySelector('.sidenote-content'),t=r.getBoundingClientRect();n.style.left=Math.min(t.left,window.innerWidth-310)+'px';n.style.top=(t.bottom+4)+'px'}}})})();
+</script>
 <hr style="border:none;border-top:1px solid var(--border);margin:16px 0 8px 0">
 <div style="font-size:0.85em; color:var(--text-secondary)">
   <span style="float:left"><a href="/2023/" style="color:inherit;text-decoration:none">2023</a> <a href="/2023/07/" style="color:inherit;text-decoration:none">Jul</a> <a href="/2023/07/13/" style="color:inherit;text-decoration:none">13</a></span>

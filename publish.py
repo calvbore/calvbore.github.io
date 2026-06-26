@@ -172,6 +172,15 @@ function copyLatex(b){var s=b.closest(".math-wrapper").getAttribute("data-latex-
 </script>
 '''
 
+FOOTNOTE_JS = '''<script>
+(function(){var m=document.querySelector('.markdown-body');if(!m)return;
+function p(){var n=m.querySelectorAll('.sidenote-content');for(var i=0;i<n.length;i++){var e=n[i],w=e.closest('.sidenote-wrapper');if(window.innerWidth>=1024){e.style.position='absolute';e.style.top=w.querySelector('.footnote-ref').offsetTop+'px';e.style.left='';var r=m.getBoundingClientRect(),avail=window.innerWidth-(r.left+r.width+30)-20;e.style.width=Math.min(270,Math.max(150,avail))+'px'}else{e.style.position='';e.style.top='';e.style.left='';e.style.width=''}}}
+p();window.addEventListener('resize',p);
+m.addEventListener('click',function(e){var r=e.target.closest('.sidenote-wrapper .footnote-ref');var a=m.querySelectorAll('.sidenote-wrapper.active');if(!r){for(var i=0;i<a.length;i++)a[i].classList.remove('active');return}
+e.preventDefault();if(window.innerWidth<1024){var w=r.closest('.sidenote-wrapper');var d=w.classList.contains('active');for(var i=0;i<a.length;i++)a[i].classList.remove('active');if(!d){w.classList.add('active');var n=w.querySelector('.sidenote-content'),t=r.getBoundingClientRect();n.style.left=Math.min(t.left,window.innerWidth-310)+'px';n.style.top=(t.bottom+4)+'px'}}})})();
+</script>
+'''
+
 RSS_LINK = '<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="{title}">\n'
 
 TITLE_TEMPLATE = '''<br>
@@ -338,6 +347,7 @@ def build_post_html(metadata, body_html, config, category_slug_map):
         + wc_line
         + cat_line
         + body_html
+        + FOOTNOTE_JS
         + footer_line
         + FOOTER
     )
@@ -433,6 +443,74 @@ def wrap_math_blocks(html):
     )
 
 
+def reorganize_footnotes(html):
+    if 'class="footnotes footnotes-end-of-document"' not in html:
+        return html
+
+    li_pattern = re.compile(r'<li id="fn(\d+)">(.*?)</li>', re.DOTALL)
+
+    section_match = re.search(
+        r'<section id="footnotes"[^>]*>.*?<ol>(.*?)</ol>.*?</section>',
+        html, re.DOTALL,
+    )
+    if not section_match:
+        return html
+
+    fn_defs = {}
+    for m in li_pattern.finditer(section_match.group(1)):
+        fn_id = m.group(1)
+        raw = m.group(2).strip()
+        raw = re.sub(
+            rf'<a[\s\S]*?href="#fnref{fn_id}"[\s\S]*?class="footnote-back"[\s\S]*?>[\s\S]*?</a>',
+            '', raw,
+        )
+        raw = raw.replace('\u21a9', '').replace('\ufe0e', '').strip()
+        # Strip outer <p>...</p> so content is phrasing-only (safe inside <span> in <p>)
+        content = re.sub(r'^<p>(.*)</p>$', r'\1', raw, flags=re.DOTALL)
+        content = content.strip()
+        fn_defs[fn_id] = content
+        fn_defs[fn_id + '_raw'] = raw  # keep raw for end-section
+
+    if not fn_defs:
+        return html
+
+    def ref_replacer(m):
+        fn_id = m.group(1)
+        content = fn_defs.get(fn_id, '')
+        return (
+            f'<span class="sidenote-wrapper">'
+            f'<a href="#fn{fn_id}" class="footnote-ref" id="fnref{fn_id}">'
+            f'<sup>{fn_id}</sup></a>'
+            f'<span class="sidenote-content" data-fn="{fn_id}">{content}</span>'
+            f'</span>'
+        )
+
+    ref_pattern = re.compile(
+        r'<a[^>]*?href="#fn(\d+)"[^>]*?class="footnote-ref"[^>]*?><sup>\d+</sup></a>'
+    )
+    html = ref_pattern.sub(ref_replacer, html)
+
+    compact = '<section id="footnotes" class="footnotes">\n<hr>\n<ol>\n'
+    for fn_id in sorted((k for k in fn_defs if not k.endswith('_raw')), key=int):
+        raw = fn_defs.get(fn_id + '_raw', fn_defs[fn_id])
+        # Insert back-link before </p> so it appears inline at end of footnote text
+        raw_with_back = re.sub(
+            r'</p>\s*$',
+            f' <a href="#fnref{fn_id}" class="footnote-back" role="doc-backlink">'
+            f'\u21a9\ufe0e</a></p>',
+            raw,
+        )
+        compact += f'<li id="fn{fn_id}">{raw_with_back}</li>\n'
+    compact += '</ol>\n</section>'
+
+    html = re.sub(
+        r'<section id="footnotes"[^>]*>.*?</section>',
+        compact, html, flags=re.DOTALL,
+    )
+
+    return html
+
+
 def main():
     config = load_config()
     posts = find_posts()
@@ -510,6 +588,7 @@ def main():
             )
             body_html = wrap_code_blocks(result.stdout)
             body_html = wrap_math_blocks(body_html)
+            body_html = reorganize_footnotes(body_html)
         except subprocess.CalledProcessError as e:
             print(f"  pandoc error: {e}")
             continue

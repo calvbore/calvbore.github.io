@@ -276,6 +276,70 @@ small {
   color: var(--text-secondary);
 }
 
+/* Footnote margin notes */
+.sidenote-content {
+  display: none;
+  font-size: 0.85em;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+.sidenote-content p {
+  margin: 0;
+}
+.footnotes {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+}
+.footnotes ol {
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+}
+.footnotes hr {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 1024px) {
+  body {
+    max-width: 960px;
+  }
+  .markdown-body {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .sidenote-content {
+    display: block;
+    position: absolute;
+    left: calc(100% + 30px);
+    width: 270px;
+    border-left: 1px solid var(--border);
+    padding-left: 12px;
+  }
+  .sidenote-content p {
+    margin: 0 0 0.4em;
+  }
+}
+
+@media (max-width: 1023px) {
+  .sidenote-content {
+    position: fixed;
+    z-index: 100;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    max-width: 300px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .sidenote-content p {
+    margin: 0 0 0.4em;
+  }
+  .sidenote-wrapper.active .sidenote-content {
+    display: block;
+  }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   body {
