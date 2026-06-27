@@ -43,6 +43,10 @@ categories: [category1, category2]
 ```sh
 # Build all posts locally (requires pandoc)
 python3 publish.py
+
+# Serve the generated site locally (static HTTP server)
+python3 -m http.server 8000
+# Open http://localhost:8000 in a browser
 ```
 
 ## Architecture notes
